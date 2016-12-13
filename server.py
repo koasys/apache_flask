@@ -28,6 +28,7 @@ app.config.update(dict(
     WEBAPP_NAME='Tracker Monitoring'
 ))
 app.config.from_envvar('TRACKERAPP_SETTINGS', silent=True)
+RDBMS_TYPE = 'sqlite'
 
 ## Database related
 #
