@@ -34,11 +34,14 @@ RUN apt-get -y install sqlite3 libsqlite3-dev
 # Create the default directory
 RUN mkdir -p /srv/www
 
+
 # Clone the app from github and install packages
 RUN git clone https://github.com/koasys/apache_flask.git /srv/www/app
 RUN cp -f /srv/www/app/apache/config/default.conf /etc/apache2/sites-available/000-default.conf
 RUN pip install -r /srv/www/app/requirements.txt
 RUN sqlite3 /srv/www/app/webapp.sqlite < /srv/www/app/schema_sqlite.sql 
+
+RUN chmod a+w /srv/www/app/webapp.sqlite
 
 RUN a2enmod wsgi
 
