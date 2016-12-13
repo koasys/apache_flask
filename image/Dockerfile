@@ -40,6 +40,8 @@ RUN cp -f /srv/www/app/apache/config/default.conf /etc/apache2/sites-available/0
 RUN pip install -r /srv/www/app/requirements.txt
 RUN sqlite3 /srv/www/app/webapp.sqlite < /srv/www/app/schema_sqlite.sql 
 
+RUN a2enmod wsgi
+
 ##################### INSTALLATION END #####################
 
 # Expose the default port
