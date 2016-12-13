@@ -41,7 +41,8 @@ RUN cp -f /srv/www/app/apache/config/default.conf /etc/apache2/sites-available/0
 RUN pip install -r /srv/www/app/requirements.txt
 RUN sqlite3 /srv/www/app/webapp.sqlite < /srv/www/app/schema_sqlite.sql 
 
-RUN chmod a+w /srv/www/app/webapp.sqlite
+RUN chown www-data:www-data /srv/www/app
+RUN chown www-data:www-data /srv/www/app/webapp.sqlite
 
 RUN a2enmod wsgi
 
