@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+
+{% include '_main_head.html' %}
+
+
+    <body style="margin: 0 auto;width:1000px;">
+
+        {% include '_main_header.html' %}
+
+        {% with messages = get_flashed_messages(category_filter=["index_page"]) %}
+          {% if messages %}
+            <div class="alert alert-warning alert-dismissible">
+                <ul class=flashes>
+                {% for message in messages %}
+                  <li>{{ message }}</li>
+                {% endfor %}
+                </ul>
+            </div>    
+          {% endif %}
+        {% endwith %}    
+    
+
+        <div style="text-align:center;margin-top:100px;font-family: 'Open Sans', sans-serif;">
+            <h1><font color="#585858">Dashboard</font> </h1>
+        <div>
+
+                
+    </body>
+</html>
